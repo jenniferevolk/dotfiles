@@ -1,0 +1,7 @@
+app     fix             file            path
+------- -------------   --------------  -------------------------
+discord sizing          settings.json   .config/discord/                
+firefox text-boxes      userContent.css .mozilla/firefox/-/chrome/
+git     defaults        .gitconfig      ~\         
+
+
