@@ -28,14 +28,9 @@ function linkDotfile {
   echo "Creating new symlink: ${dest}"
   ln -s ${dotfilesDir}/${1} ${dest}
 }
-#linkDotfile .vimrc
-#linkDotfile .tmux.conf
 linkDotfile .bashrc
-linkDotfile .bash_profile
+linkDotfile .profile
 linkDotfile .gitconfig
-#linkDotfile .gitmessage
-#linkDotfile .git-completion.bash
-#linkDotfile settings.json .config/discord/settings.json
-#.mozilla/firefox/-/chrome/
-
+linkDotfile settings.json .config/discord/settings.json
+linkDotfile config.cson .atom/config.cson
 

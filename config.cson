@@ -1,0 +1,14 @@
+"*":
+  core:
+    disabledPackages: [
+      "linter-jshint"
+    ]
+    telemetryConsent: "limited"
+  "exception-reporting":
+    userId: "d2444a97-ce55-45d6-a452-8b7c86c2d15a"
+  "linter-jshint":
+    lintInlineJavaScript: true
+  "linter-ui-default":
+    showPanel: true
+  welcome:
+    showOnStartup: false
