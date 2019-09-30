@@ -18,30 +18,46 @@ function install {
 # Basics
 install tlp
 install tlp-rdw
-install awscli
 install chromium-browser
 install curl
-install exfat-utils
-install file
-install git
 install htop
 install nmap
-install openvpn
 install tmux
 install xclip
-install cherrytree
+install youtube-dl
+
+
+#development
+install git
 install nodejs
 install npm
 install zeal
+
+#office
+install cherrytree
 
 # Image processing
 install gimp
 install jpegoptim
 install optipng
+install inkscape
+install krita
+install blender
+install makehuman
 
 # Fun stuff
 install figlet
 install lolcat
 
 
+#snaps
+install snapd
+snap install godot-mono
+
+#programs
+cd programs/
+./vscode.sh
+./python.sh
+./atom.sh
+./spotify.sh
 

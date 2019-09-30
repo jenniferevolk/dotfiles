@@ -1,0 +1,12 @@
+atom-beautify
+atom-ternjs
+autoclose-html
+emmet
+csslint
+linter
+linter-ui-default
+linter-jshint
+pigments
+language-ejs
+intentions
+busy-signal

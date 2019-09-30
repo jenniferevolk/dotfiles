@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Set up the desktop
+gsettings set com.canonical.indicator.datetime time-format 12-hour
 gsettings set org.gnome.desktop.wm.keybindings maximize-vertically "['<Alt>v']"
 gsettings set org.gnome.desktop.wm.keybindings maximize-horizontally "['<Alt>h']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal '<Shift><Alt>t'
