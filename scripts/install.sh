@@ -60,4 +60,5 @@ cd programs/
 ./python.sh
 ./atom.sh
 ./spotify.sh
+./mongodb.sh
 

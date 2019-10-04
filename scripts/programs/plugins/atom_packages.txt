@@ -10,3 +10,4 @@ pigments
 language-ejs
 intentions
 busy-signal
+hyperclick
