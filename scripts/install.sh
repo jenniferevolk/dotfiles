@@ -15,16 +15,19 @@ function install {
 
 
 
+
+cd programs/
+
 # Basics
 install tlp
 install tlp-rdw
-install chromium-browser
 install curl
 install htop
 install nmap
 install tmux
 install xclip
 install youtube-dl
+install meld
 
 
 #development
@@ -32,11 +35,12 @@ install git
 install nodejs
 install npm
 install zeal
-
-#office
+install chromium-browser
+install xfce4-clipman-plugin
+install cheese
+install snapd
 install cherrytree
 
-# Image processing
 install gimp
 install jpegoptim
 install optipng
@@ -49,16 +53,27 @@ install makehuman
 install figlet
 install lolcat
 
-
-#snaps
-install snapd
-snap install godot-mono
-
-#programs
-cd programs/
+#scripts
 ./vscode.sh
 ./python.sh
 ./atom.sh
-./spotify.sh
 ./mongodb.sh
+./postman.sh
+./anaconda.sh
+./virtualbox.sh
+
+./discord.sh
+./telegram.sh
+
+./anki.sh
+./neofetch.sh
+./spotify.sh
+
+
+#snaps
+sudo snap install --classic heroku
+sudo snap install godot-mono
+
+
+
 

@@ -31,6 +31,6 @@ function linkDotfile {
 linkDotfile .bashrc
 linkDotfile .profile
 linkDotfile .gitconfig
-linkDotfile settings.json .config/discord/settings.json
-linkDotfile config.cson .atom/config.cson
+linkDotfile discord/settings.json .config/discord/settings.json
+linkDotfile atom/config.cson .atom/config.cson
 

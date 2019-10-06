@@ -1,11 +1,10 @@
 #!/bin/bash
 
-./symlink.sh
+
 ./install.sh
 ./drivers.sh
-./desktop.sh
 
-
+./symlink.sh
 # Get all upgrades
 sudo apt upgrade -y
 
