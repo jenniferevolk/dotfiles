@@ -8,6 +8,10 @@ case $- in
       *) return;;
 esac
 
+if [[ $TERM == "dvtm-256color" ]]; then
+    TERM="xterm-color"
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -17,7 +21,7 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
-HISTFILESIZE=2000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -28,7 +32,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -37,8 +41,13 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color) color_prompt=yes;;
+    dvtm) color_prompt=yes; TERM="xterm";;
 esac
+
+if [[ $TERM == 'xterm-color' || $TERM == 'xterm' ]] ; then
+    export TERM='xterm-256color'
+fi
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -59,7 +68,8 @@ fi
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -72,29 +82,71 @@ xterm*|rxvt*)
     ;;
 esac
 
+# start ssh-agent in the background
+eval "$(ssh-agent -s)"
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
+
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+ # handy functions
+    function colors {
+        for C in {0..255}; do
+            tput setab $C
+            echo -n "$C "
+        done
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+        tput sgr0
+        echo '
+        '
+    }
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+ 
+ # profiles and aliases
+ alias rebash='source ~/.profile'
+ alias rebashrc='source ~/.bashrc'
+ alias profile-edit='sudo nano ~/.profile ~/.bashrc'
+
+
+#git aliases
+ alias lsg='git branch'
+ alias merge='git merge'
+ alias gls='git branch'
+ alias checkout="git checkout"
+ alias clone="git clone"
+ alias add="git add"
+ alias commit="git commit"
+ alias push="git push"
+ alias pull='git pull'
+ alias status='git status'
+ alias gmv='git mv'
+ alias diff-master='git diff origin/master'
+ alias fetch='git fetch'
+ alias ggr='git log --graph --decorate --oneline'
+ alias rbm='git pull --rebase origin master&& echo "The deed is done." | toilet -w 80 --gay -t --font smmono9'
+ alias rbmp='git pull --rebase origin master && \
+             dialog --no-nl-expand --yesno "Forcefully push to origin?" 6 20 && \
+                 git push --force'
+ alias rbb='git fetch origin; git pull --rebase origin'
+ alias hdiff='git diff HEAD'
+ alias oshit='git reset HEAD~'
+alias diff-master='git diff origin/master'
+
+
+
+
+#random
+ alias icanhaz="curl icanhazip.com"
+ alias secret_bash='export HISTFILE="/dev/null"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -115,3 +167,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+

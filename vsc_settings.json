@@ -1,0 +1,20 @@
+{
+    "workbench.iconTheme": "atom-icons",
+    "workbench.colorTheme": "Atomize",
+
+  "editor.cursorBlinking": "blink",
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.minimap.enabled": false,
+  "editor.occurrencesHighlight": false,
+  "editor.renderIndentGuides": false,
+  "editor.roundedSelection": false,
+  "editor.scrollBeyondLastLine": false,
+  "explorer.decorations.colors": false,
+  "explorer.openEditors.visible": 0,
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": false,
+  "workbench.editor.showIcons": false,
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.feedback.visible": false
+}
+

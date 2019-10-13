@@ -28,9 +28,20 @@ function linkDotfile {
   echo "Creating new symlink: ${dest}"
   ln -s ${dotfilesDir}/${1} ${dest}
 }
+
 linkDotfile .bashrc
 linkDotfile .profile
 linkDotfile .gitconfig
-linkDotfile discord/settings.json .config/discord/settings.json
-linkDotfile atom/config.cson .atom/config.cson
+
+
+#vscode
+dest="${HOME}/.config/Code/User"
+mkdir -p ${dest}
+ln -s ${dotfilesDir}/vsc_settings.json ${dest}/settings.json
+
+#discord
+dest="${HOME}/.config/discord"
+mkdir -p ${dest}
+ln -s ${dotfilesDir}/discord_settings.json ${dest}/settings.json
+
 

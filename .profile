@@ -21,7 +21,15 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+export EDITOR="$(which vim)"
+
+# grant access to Inspire's GitHub Enterprise
+#clear; sudo /etc/init.d/modifygheaccess start
+
+#cd $HOME/devel/bc/
+clear
+if [ "$TERM" != "screen" ] ; then
+    fortune -s -n 70 | toilet  --gay -t --font smmono9
+else
+    clear &&  fortune -s -n 70 | toilet -w 80 --font mini
 fi

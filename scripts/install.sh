@@ -30,6 +30,7 @@ install youtube-dl
 install meld
 
 
+
 #development
 install git
 install nodejs
@@ -40,6 +41,7 @@ install xfce4-clipman-plugin
 install cheese
 install snapd
 install cherrytree
+install gitstats
 
 install gimp
 install jpegoptim
@@ -48,15 +50,22 @@ install inkscape
 install krita
 install blender
 install makehuman
+install mpv
 
 # Fun stuff
 install figlet
 install lolcat
+install toilet
+
+# NPM stuff
+sudo npm -g install speed-test
+sudo npm -g install nodemon
+sudo npm -g install fx
+
 
 #scripts
 ./vscode.sh
 ./python.sh
-./atom.sh
 ./mongodb.sh
 ./postman.sh
 ./anaconda.sh

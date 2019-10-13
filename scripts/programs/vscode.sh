@@ -9,10 +9,21 @@ sudo apt install -y apt-transport-https
 sudo apt update
 sudo apt install -y code
 rm microsoft.gpg
-ln -s $(pwd)/../vsc_settings.json $HOME/.config/Code/User/settings.json
+
 
 function install {
   name="${1}"
   code --install-extension ${name} --force
 }
 
+install jamesqquick.web-development-essentials-extension-pack
+install jaspernorth.vscode-pigments
+install emroussel.atomize-atom-one-dark-theme
+install ms-python.python
+install sidthesloth.html5-boilerplate
+install formulahendry.auto-close-tag
+install dbaeumer.jshint
+install formulahendry.code-runner
+install yzhang.markdown-all-in-one
+install shd101wyy.markdow
+install thekalinga.bootstrap4-vscode
